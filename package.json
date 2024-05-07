@@ -1,0 +1,34 @@
+{
+  "name": "content-automaiton",
+  "version": "1.0.0",
+  "description": "A powerful AI CRM for content creation - Node BackEnd",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gionatagaravani/content-automation-backend.git"
+  },
+  "author": "Gionata Garavani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gionatagaravani/content-automation-backend/issues"
+  },
+  "homepage": "https://github.com/gionatagaravani/content-automation-backend#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  },
+  "dependencies": {
+    "@types/mongoose": "^5.11.97",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.4"
+  }
+}
