@@ -1,6 +1,6 @@
-import { User } from '../models/users.js';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import { User } from "../models/users.js";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
   const { email, password } = req.body;
@@ -8,19 +8,19 @@ export const register = async (req, res) => {
   if (!email) {
     return res
       .status(400)
-      .json({ status: 'error', message: 'email not vaild' });
+      .json({ status: "error", message: "email not vaild" });
   }
 
   if (!password) {
     return res
       .status(400)
-      .json({ status: 'error', message: 'password not vaild' });
+      .json({ status: "error", message: "password not vaild" });
   }
 
   if (password.length < 7) {
     return res.status(400).json({
-      status: 'error',
-      message: 'password must be at least 8 characters',
+      status: "error",
+      message: "password must be at least 8 characters",
     });
   }
 
@@ -46,7 +46,7 @@ export const login = async (req, res) => {
   if (!user) {
     return res
       .status(400)
-      .json({ status: 'error', message: 'email or password not found' });
+      .json({ status: "error", message: "email or password not found" });
   }
 
   if (bcrypt.compare(password, user.password)) {
@@ -57,9 +57,10 @@ export const login = async (req, res) => {
       },
       process.env.JWT_SECRECT
     );
-    return res.json({status: 'ok', data: token})
+    return res.json({ status: "ok", token: token, data: user });
   }
 
-  res.send(401).json({ status: 'error', message: 'email or password not found' });
-
+  res
+    .send(401)
+    .json({ status: "error", message: "email or password not found" });
 };
