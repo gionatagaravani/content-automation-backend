@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const register = async (req, res) => {
-  const { email, password } = req.body;
+  const { name, surname, email, password } = req.body;
 
   if (!email) {
     return res
@@ -26,6 +26,8 @@ export const register = async (req, res) => {
 
   const hashPsw = await bcrypt.hash(password, 10);
   const user = new User({
+    name: name,
+    surname: surname,
     email: email,
     password: hashPsw,
   });
