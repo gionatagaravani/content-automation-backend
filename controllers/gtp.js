@@ -1,4 +1,6 @@
 import axios from "axios";
+import dotenv from 'dotenv'
+dotenv.config();
 
 const headers = {
   "Content-Type": "application/json",
@@ -35,12 +37,12 @@ export const Gpt4 = async (req, res) => {
       }
     )
     .then((response) => {
-      console.log(response.data);
-      res.status(404).json(response);
+      console.log(response.data.choices[0].message);
+      res.status(201).json({message: response.data.choices[0].message});
       res.send;
     })
     .catch((error) => {
-      console.error(error);
+      console.error(error.message);
       res.status(404).json({ message: error.message });
     });
 };
