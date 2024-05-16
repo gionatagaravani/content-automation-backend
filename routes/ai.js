@@ -4,6 +4,6 @@ import { authenticateToken } from '../middlewares/auth';
 
 const router = express.Router();
 
-router.post('/gpt-4', authenticateToken, Gpt4);
+router.post('/text', authenticateToken, Gpt4);
 
 export default router;
