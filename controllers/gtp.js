@@ -39,7 +39,6 @@ export const Gpt4 = async (req, res) => {
     .then((response) => {
       console.log(response.data.choices[0].message);
       res.status(201).json({message: response.data.choices[0].message});
-      res.send;
     })
     .catch((error) => {
       console.error(error.message);

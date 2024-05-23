@@ -1,8 +1,8 @@
 import express from 'express'
-import { GetInfo } from '../controllers/google.js';
+import { Login } from '../controllers/google.js';
 
 const router = express.Router();
 
-router.post('/info', GetInfo);
+router.post('/login', Login);
 
 export default router;
