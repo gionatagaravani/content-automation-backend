@@ -1,7 +1,7 @@
 import axios from "axios";
 import dotenv from "dotenv";
 import { User } from "../models/users.js";
-import { capitalizeFirstLetter } from "./shared/functions.js";
+import { capitalizeFirstLetter } from "../shared/functions.js";
 import jwt from "jsonwebtoken";
 
 dotenv.config();
