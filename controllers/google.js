@@ -6,10 +6,6 @@ import jwt from "jsonwebtoken";
 
 dotenv.config();
 
-const headers = {
-  "Content-Type": "application/json",
-};
-
 export const Login = async (req, res) => {
   const { token } = req.body;
 

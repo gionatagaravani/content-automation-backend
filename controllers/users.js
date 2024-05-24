@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
-import { User } from '../models/users.js';
+import mongoose from "mongoose";
+import { User } from "../models/users.js";
 
 export const insertUsers = async (req, res) => {
   const user = new User(req.body);
@@ -39,13 +39,13 @@ export const deleteUser = async (req, res) => {
   const { id: _id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(_id)) {
-    res.status(404).json({ message: 'id not found' });
+    res.status(404).json({ message: "id not found" });
   }
 
   try {
     await User.findByIdAndDelete(_id);
 
-    res.status(200).json({ message: 'user deleted' });
+    res.status(200).json({ message: "user deleted" });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
@@ -56,7 +56,7 @@ export const updateUser = async (req, res) => {
   const data = { ...req.body };
 
   if (!mongoose.Types.ObjectId.isValid(_id)) {
-    res.status(404).json({ message: 'id not found' });
+    res.status(404).json({ message: "id not found" });
   }
 
   try {
@@ -66,4 +66,15 @@ export const updateUser = async (req, res) => {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
+};
+
+export const uploadImage = (req, res) => {
+  if (!req.file) {
+    return res.status(404).json({ message: "No file uploaded" });
+  }
+
+  res.json({
+    message: "File uploaded successfully",
+    filename: req.file.filename,
+  });
 };
